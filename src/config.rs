@@ -1,6 +1,6 @@
 use std::env;
 
-use crate::cli::Arguments;
+use crate::cli::Cli;
 
 pub struct Config {
     pub query: String,
@@ -13,7 +13,7 @@ impl Config {
     where
         T: Iterator<Item = String>,
     {
-        let cli = Arguments::new(args, 2)?;
+        let cli = Cli::parse(args, 2)?;
 
         let query = cli
             .positional_arguments

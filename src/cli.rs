@@ -2,13 +2,13 @@ use std::collections::HashMap;
 
 static VALID_OPTIONS: [&str; 1] = ["--ignore-case"];
 
-pub struct Arguments {
+pub struct Cli {
     pub options: HashMap<String, String>,
     pub positional_arguments: Vec<String>,
 }
 
-impl Arguments {
-    pub fn new<T>(args: T, limit: usize) -> Result<Self, &'static str>
+impl Cli {
+    pub fn parse<T>(args: T, limit: usize) -> Result<Self, &'static str>
     where
         T: Iterator<Item = String>,
     {
